@@ -79,7 +79,7 @@ export default {
                 inputVisible: false,
                 iconSize: 40
             },
-            sensors: ''
+            sensors: []
         }
     },
 
