@@ -11,15 +11,15 @@
       >
         <h3 class="title" >無線網路期末專題</h3>
         <el-divider></el-divider>
-        <el-menu-item index="/wireless-final/explaination">
+        <el-menu-item index="/explaination">
           <el-icon size="20" class="menu-icon"><info-filled /></el-icon>
           <span class="menu-text">使用說明</span>
         </el-menu-item>
-        <el-menu-item index="/wireless-final/sensors">
+        <el-menu-item index="/sensors">
           <el-icon size="20" class="menu-icon"><tools /></el-icon>
           <span class="menu-text">感測器列表</span>
         </el-menu-item>
-        <el-menu-item index="/wireless-final/history">
+        <el-menu-item index="/history">
           <el-icon size="20" class="menu-icon"><clock /></el-icon>
           <span class="menu-text">感測紀錄</span>
         </el-menu-item>

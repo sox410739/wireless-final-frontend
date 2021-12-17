@@ -90,7 +90,7 @@ export default {
 
     methods: {
         async getSensors() {
-            let response = await axios.get('/backend/sensors');
+            let response = await axios.get('https://cockroach.idv.tw/wireless-final-backend/apis/sensors');
             this.sensors = response.data;
         },
 
@@ -110,7 +110,7 @@ export default {
 
             let config = {
                 method: 'POST',
-                url: '/backend/sensor-sign-up',
+                url: 'https://cockroach.idv.tw/wireless-final-backend/apis/sensor-sign-up',
                 data: {
                     UID: this.newSensor.inputUID,
                     name: this.newSensor.inputName,
@@ -134,7 +134,7 @@ export default {
         async deleteSensor(UID) {
             let config = {
                 method: 'DELETE',
-                url: '/backend/sensors/' + UID,
+                url: 'https://cockroach.idv.tw/wireless-final-backend/apis/sensors/' + UID,
             }
             
             try {

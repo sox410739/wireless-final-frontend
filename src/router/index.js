@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
+// import Home from '../views/Home.vue'
 
 // const Header = () => import('../components/Header.vue');
 const Explaination = () => import('../components/Explaination.vue');
@@ -9,14 +9,8 @@ const History = () => import('../components/History.vue');
 const routes = [
   {
     path: '/',
-    redirect:'/wireless-final',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/wireless-final',
     name: 'Wireless-Final',
-    redirect: '/wireless-final/explaination',
+    redirect: '/explaination',
     component: () => import('../views/Wireless-Final.vue'),
     children: [
       {
@@ -39,7 +33,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(process.env.BASE_URL),
   routes
 })
 
