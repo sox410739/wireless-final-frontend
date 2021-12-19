@@ -1,5 +1,5 @@
 <template>
-  <el-container height="500px">
+  <el-container class="container">
     <el-aside class="aside" >
       <el-menu
         active-text-color="#ffd04b"
@@ -23,13 +23,13 @@
           <el-icon size="20" class="menu-icon"><clock /></el-icon>
           <span class="menu-text">感測紀錄</span>
         </el-menu-item>
-        <br v-for="num in 30" :key="num+1">
+        
       </el-menu>
     </el-aside>
 
 
     <el-container direction="vertical">
-      <el-main>
+      <el-main class="main">
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -52,9 +52,22 @@ export default {
 
 
 <style scoped>
+.container {
+  height: 100%
+}
+
 .aside {
   box-shadow: 5px 0px 70px black;
   text-align: center;
+  height: 100%;
+  background-color: #015249;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: rgb(230, 230, 230);
+  
+}
+.el-menu {
+  border-right-width: 0px;
 }
 
 .title {
@@ -72,6 +85,10 @@ export default {
 .menu-icon {
   padding-bottom: 5px;
   color: white;
+}
+
+.main {
+  padding: 30px;
 }
 
 </style>
