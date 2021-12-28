@@ -8,9 +8,8 @@
         :key="sensor.UID">
             
             <el-form @click.stop="">
-                <el-button type="success" circle>
-                    <el-icon><document-checked /></el-icon>
-                </el-button>
+                <el-progress type="circle" :percentage="sensor.batteryDisplay" 
+                :color="sensor.batteryStatus" width="47"/>
                 <el-button type="danger" circle @click="deleteSensor(sensor.UID)">
                     <el-icon><close-bold /></el-icon>
                 </el-button>
@@ -85,13 +84,24 @@ export default {
 
     async mounted() {
         await this.getSensors();
+        this.displayBatteryProgress();
     },
 
 
     methods: {
         async getSensors() {
-            let response = await axios.get('https://cockroach.idv.tw/wireless-final-backend/apis/sensors');
+            let response = await axios.get(`${process.env.VUE_APP_API_PATH}sensors`);
             this.sensors = response.data;
+        },
+
+        displayBatteryProgress() {
+            this.sensors.forEach( sensor => {
+                sensor.batteryDisplay = parseInt(sensor.battery * 100);
+                
+                if (sensor.batteryDisplay > 70) sensor.batteryStatus = 'lightgreen';
+                else if (sensor.batteryDisplay > 40) sensor.batteryStatus = '#f1b946';
+                else sensor.batteryStatus = 'red';
+            });
         },
 
         newSensorOnClicked() {
@@ -110,7 +120,7 @@ export default {
 
             let config = {
                 method: 'POST',
-                url: 'https://cockroach.idv.tw/wireless-final-backend/apis/sensor-sign-up',
+                url: `${process.env.VUE_APP_API_PATH}sensor-sign-up`,
                 data: {
                     UID: this.newSensor.inputUID,
                     name: this.newSensor.inputName,
@@ -134,7 +144,7 @@ export default {
         async deleteSensor(UID) {
             let config = {
                 method: 'DELETE',
-                url: 'https://cockroach.idv.tw/wireless-final-backend/apis/sensors/' + UID,
+                url: `${process.env.VUE_APP_API_PATH}sensors/${UID}`,
             }
             
             try {
@@ -172,6 +182,11 @@ export default {
 }
 
 .el-button {
+    float: right;
+    margin-left: 10px;
+}
+
+.el-progress {
     float: right;
     margin-left: 10px;
 }

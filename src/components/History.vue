@@ -68,7 +68,7 @@ export default {
         async getHistory() {
             let config = {
                 method: 'GET',
-                url: 'https://cockroach.idv.tw/wireless-final-backend/apis/sensors/history',
+                url: `${process.env.VUE_APP_API_PATH}sensors/history`,
                 params: {
                     limit: this.limit
                 }

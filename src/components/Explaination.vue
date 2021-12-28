@@ -86,11 +86,97 @@
         <el-descriptions
             class="margin-top"
             title="Data"
-            :column="2"
+            :column="3"
             border
         >
             <el-descriptions-item label="longitude">經度，格式為浮點數字串</el-descriptions-item>
             <el-descriptions-item label="latitude">緯度，格式為浮點數字串</el-descriptions-item>
+            <el-descriptions-item label="battery">感測器電量，0-1 之間的小數</el-descriptions-item>
+        </el-descriptions>
+    </el-card>
+
+
+
+    <el-card>
+        <template #header>
+        <div class="apiHeader">
+            <el-button type="success" plain>GET</el-button>
+            <div class="api">https://cockroach.idv.tw/wireless-final-backend/apis/sensors/:sensorUID/battery</div>
+        </div>
+        </template>
+
+        <el-descriptions
+            class="margin-top"
+            title="說明"
+            :column="3"
+        >
+            <el-descriptions-item label="">獲得該感測器上一次上傳時的電量</el-descriptions-item>
+        </el-descriptions>
+
+        <el-descriptions
+            class="margin-top"
+            title="Response Example"
+            :column="3"
+        >
+            <el-descriptions-item label="">
+            <code>
+                {
+                    "battery": "0.1"
+                }
+            </code>
+            </el-descriptions-item>
+        </el-descriptions>
+    </el-card>
+
+
+    <el-card>
+        <template #header>
+        <div class="apiHeader">
+            <el-button type="success" plain>GET</el-button>
+            <div class="api">https://cockroach.idv.tw/wireless-final-backend/apis/sensors/:sensorUID/distance</div>
+        </div>
+        </template>
+
+        <el-descriptions
+            class="margin-top"
+            title="說明"
+            :column="3"
+        >
+            <el-descriptions-item label="">獲得你與感測器之間距離，以及其時間資訊</el-descriptions-item>
+        </el-descriptions>
+
+        <el-descriptions
+            class="margin-top"
+            title="Params"
+            :column="3"
+            border
+        >
+            <el-descriptions-item label="your_longitude">你的經度</el-descriptions-item>
+            <el-descriptions-item label="your_latitude">你的緯度</el-descriptions-item>
+        </el-descriptions>
+
+        <el-descriptions
+            class="margin-top"
+            title="Response Example"
+            :column="3"
+        >
+            <el-descriptions-item label="">
+            <code>
+                {
+                    "your_address": "327台灣桃園市新屋區觀海路一段742號",
+                    "sensor_address": "424台灣台中市和平區710線林道",
+                    "distance": {
+                        "text": "175 公里",
+                        "value": 174937
+                    },
+                    "duration": {
+                        "text": "1 天 13 小時",
+                        "value": 133635
+                    },
+                    "last_update": "2天前"
+                }
+            </code>
+            </el-descriptions-item>
         </el-descriptions>
     </el-card>
 </template>
