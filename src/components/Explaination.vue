@@ -179,6 +179,151 @@
             </el-descriptions-item>
         </el-descriptions>
     </el-card>
+
+
+    <el-card>
+        <template #header>
+        <div class="apiHeader">
+            <el-button type="success" plain>GET</el-button>
+            <div class="api">https://cockroach.idv.tw/wireless-final-backend/apis/sensors/:sensorUID/footprint</div>
+        </div>
+        </template>
+
+        <el-descriptions
+            class="margin-top"
+            title="說明"
+            :column="3"
+        >
+            <el-descriptions-item label="">獲得該感測器24小時的足跡，資料為陣列，長度不會超過24</el-descriptions-item>
+        </el-descriptions>
+
+        <el-descriptions
+            class="margin-top"
+            title="Params"
+            :column="3"
+            border
+        >
+            <el-descriptions-item label="date">日期格式為 YYYY-MM-DD (ex: 2021-12-29)，會獲取該天0點到24點的足跡資料</el-descriptions-item>
+        </el-descriptions>
+
+        <el-descriptions
+            class="margin-top"
+            title="Response Example"
+            :column="3"
+        >
+            <el-descriptions-item label="">
+            <code>
+                [
+                    {
+                        "latitude": "24.97038",
+                        "longitude": "121.18597",
+                        "uploaded_at": "2021-12-29 03:14:10"
+                    },
+                    {
+                        "latitude": "24.97651",
+                        "longitude": "121.13866",
+                        "uploaded_at": "2021-12-29 04:00:01"
+                    },
+                    {
+                        "latitude": "24.94824",
+                        "longitude": "121.10617",
+                        "uploaded_at": "2021-12-29 05:00:02"
+                    },
+                    {
+                        "latitude": "24.98165",
+                        "longitude": "121.11237",
+                        "uploaded_at": "2021-12-29 06:00:02"
+                    },
+                    {
+                        "latitude": "24.96869",
+                        "longitude": "121.13814",
+                        "uploaded_at": "2021-12-29 07:00:01"
+                    },
+                    {
+                        "latitude": "24.97087",
+                        "longitude": "121.13781",
+                        "uploaded_at": "2021-12-29 08:00:01"
+                    },
+                    {
+                        "latitude": "24.91997",
+                        "longitude": "121.14205",
+                        "uploaded_at": "2021-12-29 09:00:02"
+                    },
+                    {
+                        "latitude": "24.92935",
+                        "longitude": "121.11511",
+                        "uploaded_at": "2021-12-29 10:00:02"
+                    },
+                    {
+                        "latitude": "24.92645",
+                        "longitude": "121.13522",
+                        "uploaded_at": "2021-12-29 11:00:01"
+                    },
+                    {
+                        "latitude": "24.9579",
+                        "longitude": "121.12582",
+                        "uploaded_at": "2021-12-29 12:00:02"
+                    },
+                    {
+                        "latitude": "24.97955",
+                        "longitude": "121.19949",
+                        "uploaded_at": "2021-12-29 13:00:02"
+                    },
+                    {
+                        "latitude": "24.92043",
+                        "longitude": "121.14732",
+                        "uploaded_at": "2021-12-29 14:00:01"
+                    },
+                    {
+                        "latitude": "24.92129",
+                        "longitude": "121.15701",
+                        "uploaded_at": "2021-12-29 15:00:02"
+                    },
+                    {
+                        "latitude": "24.92685",
+                        "longitude": "121.14057",
+                        "uploaded_at": "2021-12-29 16:00:02"
+                    },
+                    {
+                        "latitude": "24.98642",
+                        "longitude": "121.17174",
+                        "uploaded_at": "2021-12-29 17:00:02"
+                    },
+                    {
+                        "latitude": "24.93599",
+                        "longitude": "121.13771",
+                        "uploaded_at": "2021-12-29 18:00:01"
+                    },
+                    {
+                        "latitude": "24.91126",
+                        "longitude": "121.1591",
+                        "uploaded_at": "2021-12-29 19:00:02"
+                    },
+                    {
+                        "latitude": "24.97546",
+                        "longitude": "121.15226",
+                        "uploaded_at": "2021-12-29 20:00:02"
+                    },
+                    {
+                        "latitude": "24.93256",
+                        "longitude": "121.19978",
+                        "uploaded_at": "2021-12-29 21:00:01"
+                    },
+                    {
+                        "latitude": "24.92313",
+                        "longitude": "121.1724",
+                        "uploaded_at": "2021-12-29 22:00:02"
+                    },
+                    {
+                        "latitude": "24.96349",
+                        "longitude": "121.12835",
+                        "uploaded_at": "2021-12-29 23:00:02"
+                    }
+                ]
+            </code>
+            </el-descriptions-item>
+        </el-descriptions>
+    </el-card>
 </template>
 
 

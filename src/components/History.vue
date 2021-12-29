@@ -51,8 +51,12 @@ export default {
                     label: '20',
                 },
                 {
-                    value: 40,
-                    label: '40',
+                    value: 50,
+                    label: '50',
+                },
+                {
+                    value: 200,
+                    label: '200'
                 }
             ],
             history: ''
